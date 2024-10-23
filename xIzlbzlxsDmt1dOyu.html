@@ -1,0 +1,145 @@
+<html><head><base href="." target="_blank">
+<title>Cottage Core Name Generator</title>
+<style>
+    body {
+        background-color: #f5e6d3;
+        font-family: 'Georgia', serif;
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-image: 
+            url('https://www.transparenttextures.com/patterns/clean-textile.png');
+    }
+
+    .container {
+        max-width: 800px;
+        text-align: center;
+        padding: 2rem;
+        margin-top: 2rem;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(139, 104, 74, 0.2);
+        border: 2px solid #8b684a;
+    }
+
+    h1 {
+        color: #5c4033;
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .flower-border {
+        width: 100%;
+        height: 50px;
+        margin: 1rem 0;
+    }
+
+    button {
+        background-color: #8b684a;
+        color: #fff;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Georgia', serif;
+        margin: 1rem;
+    }
+
+    button:hover {
+        background-color: #5c4033;
+        transform: translateY(-2px);
+    }
+
+    #generatedName {
+        font-size: 1.8rem;
+        color: #5c4033;
+        margin: 2rem 0;
+        padding: 1rem;
+        border: 2px dashed #8b684a;
+        display: inline-block;
+        min-width: 300px;
+    }
+
+    .decorative-leaf {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        opacity: 0.2;
+    }
+
+    .leaf-1 { top: 20px; left: 20px; transform: rotate(45deg); }
+    .leaf-2 { top: 20px; right: 20px; transform: rotate(-45deg); }
+    .leaf-3 { bottom: 20px; left: 20px; transform: rotate(-45deg); }
+    .leaf-4 { bottom: 20px; right: 20px; transform: rotate(45deg); }
+</style>
+</head>
+<body>
+    <!-- Decorative SVG Leaves -->
+    <svg class="decorative-leaf leaf-1" viewBox="0 0 100 100">
+        <path d="M50,10 Q80,50 50,90 Q20,50 50,10" fill="#8b684a"/>
+    </svg>
+    <svg class="decorative-leaf leaf-2" viewBox="0 0 100 100">
+        <path d="M50,10 Q80,50 50,90 Q20,50 50,10" fill="#8b684a"/>
+    </svg>
+    <svg class="decorative-leaf leaf-3" viewBox="0 0 100 100">
+        <path d="M50,10 Q80,50 50,90 Q20,50 50,10" fill="#8b684a"/>
+    </svg>
+    <svg class="decorative-leaf leaf-4" viewBox="0 0 100 100">
+        <path d="M50,10 Q80,50 50,90 Q20,50 50,10" fill="#8b684a"/>
+    </svg>
+
+    <div class="container">
+        <h1>✿ Kate Name Generator ✿</h1>
+        
+        <svg class="flower-border" viewBox="0 0 500 50">
+            <path d="M10,25 Q25,10 40,25 Q55,40 70,25" stroke="#8b684a" fill="none" stroke-width="2"/>
+            <circle cx="40" cy="25" r="5" fill="#d4a373"/>
+            <!-- Repeat pattern -->
+        </svg>
+
+        <button onclick="generateName()">Generate Whimsical Name</button>
+        <div id="generatedName">Your magical name awaits...</div>
+
+        <svg class="flower-border" viewBox="0 0 500 50">
+            <path d="M10,25 Q25,10 40,25 Q55,40 70,25" stroke="#8b684a" fill="none" stroke-width="2"/>
+            <circle cx="40" cy="25" r="5" fill="#d4a373"/>
+        </svg>
+    </div>
+
+    <script>
+        function generateName() {
+            const firstNames = [
+                "Hazel", "Willow", "Sage", "Flora", "Ivy", "Rose", "Primrose",
+                "Violet", "Juniper", "Maple", "Dahlia", "Fern", "Poppy", "Iris",
+                "Marigold", "Rosemary", "Clover", "Daisy", "Jasmine", "Laurel"
+            ];
+
+            const lastNames = [
+                "Blackberry", "Moonbeam", "Wildflower", "Thornberry", "Honeywood",
+                "Morningdew", "Sweetmeadow", "Fairlight", "Greenwood", "Summermist",
+                "Dewdrop", "Starling", "Bramble", "Nightshade", "Whispering",
+                "Heatherfield", "Mosswood", "Sunfield", "Rosegarden", "Cloudberry"
+            ];
+
+            const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+            const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+
+            const nameElement = document.getElementById('generatedName');
+            nameElement.style.opacity = 0;
+            
+            setTimeout(() => {
+                nameElement.textContent = `${firstName} ${lastName}`;
+                nameElement.style.opacity = 1;
+            }, 200);
+        }
+
+        // Add fade transition
+        document.getElementById('generatedName').style.transition = 'opacity 0.3s ease';
+    </script>
+</body>
+</html>
